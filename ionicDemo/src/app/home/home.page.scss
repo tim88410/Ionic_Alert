@@ -1,0 +1,14 @@
+.terms-link {
+  text-decoration: underline;
+  color: blue;
+  cursor: pointer;
+}
+
+.dropdown-trigger {
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: fit-content;
+  user-select: none;
+}

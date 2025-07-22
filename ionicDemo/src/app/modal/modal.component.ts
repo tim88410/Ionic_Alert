@@ -1,17 +1,19 @@
 import { Component } from '@angular/core';
-import { IonicModule, ModalController } from '@ionic/angular';
+import { ModalController, IonicModule } from '@ionic/angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-modal',
   standalone: true,
-  imports: [IonicModule],
+  imports: [IonicModule, CommonModule],
   templateUrl: './modal.component.html',
-  // styleUrls: ['./modal.component.scss'], // 如果你沒使用 SCSS 可以註解掉
 })
 export class ModalComponent {
-  constructor(private modalController: ModalController) {}
+  durations = ['3個月', '6個月', '9個月'];
+
+  constructor(private modalCtrl: ModalController) {}
 
   dismiss() {
-    this.modalController.dismiss();
+    this.modalCtrl.dismiss();
   }
 }

@@ -5,16 +5,23 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" #contentRef (ionScroll)="onScroll($event)">
-  <ion-button expand="block" (click)="presentAlert()">開啟彈窗</ion-button>
-  <ion-button expand="block" (click)="presentModal()">開啟下方視窗</ion-button>
+  <p class="terms-link" (click)="presentTermsModal()">閱讀條款</p>
 
-  <div *ngFor="let item of longList" class="ion-padding">
-    <p>內容：{{ item }}</p>
+  <div class="dropdown-trigger" (click)="presentModal()">
+    下拉式選單 ▾
   </div>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="showGoTop">
-    <ion-fab-button (click)="scrollToTop(contentRef)">
-      <ion-icon name="arrow-up-outline"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
+  @for (item of longList; track item) {
+    <div class="ion-padding">
+      <p>內容：{{ item }}</p>
+    </div>
+  }
+
+  @if (showGoTop) {
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="scrollToTop()">
+        <ion-icon name="arrow-up-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  }
 </ion-content>

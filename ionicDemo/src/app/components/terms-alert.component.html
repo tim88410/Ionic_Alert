@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>使用者條款</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss(false)">關閉</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #content fullscreen scrollEvents="true" (ionScroll)="onScroll($event)">
+  @for (i of [].constructor(50); track $index) {
+    <p>條款內容第 {{ $index + 1 }} 條，用戶須遵守{{ $index + 1 }} 條規範。</p>
+  }
+
+  <ion-item lines="none">
+    <ion-checkbox slot="start" [(ngModel)]="isChecked"></ion-checkbox>
+    <ion-label>我已閱讀完聲明</ion-label>
+  </ion-item>
+
+  @if (!scrolledToBottom) {
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="fab-scroll">
+      <ion-fab-button color="primary" (click)="scrollToBottom()">請往下繼續閱讀</ion-fab-button>
+    </ion-fab>
+  }
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" [disabled]="!isChecked" (click)="confirm()">確定</ion-button>
+  </ion-toolbar>
+</ion-footer>
