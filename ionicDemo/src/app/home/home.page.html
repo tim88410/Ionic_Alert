@@ -5,6 +5,8 @@
 </ion-header>
 
 <ion-content [scrollEvents]="true" #contentRef (ionScroll)="onScroll($event)">
+  
+  <ion-button expand="block" (click)="presentAlert()">開啟彈窗</ion-button>
   <p class="terms-link" (click)="presentTermsModal()">閱讀條款</p>
 
   <div class="dropdown-trigger" (click)="presentModal()">

@@ -27,6 +27,15 @@ export class HomePage {
     private alertController: AlertController,
     private modalController: ModalController
   ) {}
+  
+  async presentAlert() {
+    const alert = await this.alertController.create({
+      header: '提示',
+      message: '這是一個彈窗！',
+      buttons: ['OK'],
+    });
+    await alert.present();
+  }
 
   async presentTermsModal() {
     const modal = await this.modalController.create({
